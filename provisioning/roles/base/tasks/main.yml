@@ -19,9 +19,9 @@
     name: net-tools
     state: latest
 
-- name: apt-get "wget"
+- name: apt-get "htop"
   apt:
-    name: wget
+    name: htop
     state: latest
 
 - name: apt-get "vim"
