@@ -1,11 +1,13 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
   config.vm.hostname = "ubuntu-vagrant"
-  config.vm.synced_folder "storage/", "/var/lib/docker/volumes/", create: true
+  # Ignore vguest updates during prov (faster)
+  config.vbguest.auto_update = false
+  config.vm.synced_folder "storage/", "/vagrant/storage", create: true
   
 config.vm.provider "virtualbox" do |v|   
-  v.memory = 2048   
-  v.cpus = 2 
+  v.memory = 4096   
+  v.cpus = 10 
 end
 
   # -= ANSIBLE =-
